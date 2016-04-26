@@ -4,16 +4,14 @@ language: go
 
 go:
   - 1.4.3
-  - 1.5
-  - 1.5.1
+  - 1.5.3
+  - 1.6
 
 install:
-  - go get -v ./...
-  - go get golang.org/x/tools/cmd/cover
+  - go get -t -d -v ./...
 
 services:
   - redis-server
 
 script:
-  - go test -v -cover .
-  - go test -v -cover ./apiserver
+  - go test -v ./ ./apiserver
